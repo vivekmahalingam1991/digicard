@@ -11,7 +11,7 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 var {Users} = require('./models/users');
-var {UserDetail} = require('./models/UserDetail');
+var {Userdetail} = require('./models/userdetail');
 
 const port = process.env.PORT || 3000;
 
@@ -58,7 +58,7 @@ console.log(todos[0].havingCard);
 app.get('/todos123',(req,res)=>{
 
   var todos1;
-  UserDetail.find().then((userdetails)=>{
+  Userdetail.find().then((userdetails)=>{
     res.send({
       userdetails
     })
@@ -132,6 +132,21 @@ app.get('/todos/:id',(req,res)=>{
 
 });
 
+
+app.get('/todos123/:id',(req,res)=>{
+
+  var id = req.params.id;
+
+
+Userdetail.findOne({usercard:id}).then((userdetail)=>{
+  res.send({userdetail});
+console.log("hii");
+})
+
+
+  },(e)=>{
+    res.status(400).send(e);
+  });
 
 
 
