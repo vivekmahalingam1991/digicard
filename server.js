@@ -104,6 +104,33 @@ var fromid = req.params.fromid;
   });
 
 
+  app.get('/todos1234/:fromid&:toid',(req,res)=>{
+
+  console.log("hii");
+  var toid = req.params.toid;
+  var fromid = req.params.fromid;
+
+    // var todo = new Todo({
+    //   having :  req.params.fromid
+    // });
+
+    // var todo1 = {
+    //
+    // having: req.params.fromid
+    // }
+
+    Todo.findOneAndUpdate({userCard:toid},{$push:{havingCard:fromid}},{new: true, upsert: true}
+    ).then((todo)=>{
+
+      if(!todo){
+        return res.status(404).send();
+      }
+      res.send({todo});
+    }).catch((e)=>{
+      return res.status(404).send();
+    });
+    });
+
 app.get('/users',(req,res)=>{
 
   var todos1;
