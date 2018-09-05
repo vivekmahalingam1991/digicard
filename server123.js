@@ -41,6 +41,15 @@ console.log(req.body);
 });
 
 
+app.get('/display', function(req, res) {
+  fs.readFile('suntzu.jpg', function(err, data) {
+    if (err) throw err; // Fail if the file can't be read.
+    else {
+      res.writeHead(200, {'Content-Type': 'image/jpeg'});
+      res.end(data); // Send the file data to the browser.
+    }
+  });
+});
 
 app.get('/todos1234/:userid&:location',(req,res)=>{
 
