@@ -86,7 +86,7 @@ app.get('/display', function(req, res) {
   });
 });
 
-app.get('/todos12345/:userid&:location',(req,res)=>{
+app.get('/location/:userid&:location',(req,res)=>{
 
 var location = req.params.location;
 var userid  = req.params.userid;
