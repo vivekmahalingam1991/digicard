@@ -75,7 +75,7 @@ app.get('/todos123',(req,res)=>{
 
 });
 
-app.get('/display', function(req, res) {
+app.get('/todos12345/display', function(req, res) {
   fs.readFile('suntzu.jpg', function(err, data) {
     if (err) throw err; // Fail if the file can't be read.
     else {
