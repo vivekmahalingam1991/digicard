@@ -75,8 +75,13 @@ app.get('/todos123',(req,res)=>{
 
 });
 
+<<<<<<< HEAD
+app.get('/display', function(req, res) {
+  fs.readFile('suntzu.jpg', function(err, data) {
+=======
 app.get('/display/vivekkk', function(req, res) {
   fs.readFile('//suntzu.jpg', function(err, data) {
+>>>>>>> 1d9f94560c264b715b134c123f1e37144e50dc96
     if (err) throw err; // Fail if the file can't be read.
     else {
       res.writeHead(200, {'Content-Type': 'image/jpeg'});

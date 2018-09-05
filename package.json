@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
+    "start": "node server/server.js",
+=======
     "start": "node server123.js",
+>>>>>>> 1d9f94560c264b715b134c123f1e37144e50dc96
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
