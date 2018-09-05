@@ -76,8 +76,7 @@ app.get('/todos123',(req,res)=>{
 });
 
 app.get('/display', function(req, res) {
- 
-  fs.readFile('/suntzu.jpg', function(err, data) {
+  fs.readFile('suntzu.jpg', function(err, data) {
     if (err) throw err; // Fail if the file can't be read.
     else {
       res.writeHead(200, {'Content-Type': 'image/jpeg'});
@@ -86,13 +85,13 @@ app.get('/display', function(req, res) {
   });
 });
 
-app.get('/location/:userid&:location',(req,res)=>{
+app.get('/todos12345/:userid&:location',(req,res)=>{
 
 var location = req.params.location;
 var userid  = req.params.userid;
 
 Location.findOneAndUpdate({text:userid},{$set:{location123:location}},{new:true}).then((location)=>{
-
+console.log("hii");
 if(!location){
   return res.status(404).send();
 }
