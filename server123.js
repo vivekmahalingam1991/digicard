@@ -104,7 +104,23 @@ console.log(todos[0].havingCard);
 
 
 
+app.get('/users',(req,res)=>{
 
+  var todos1;
+  Users.find().then((users)=>{
+    res.send({
+      users
+    })
+
+
+
+  },(e)=>{
+    res.status(400).send(e);
+  });
+
+
+
+});
 
 
 
