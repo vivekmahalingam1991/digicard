@@ -14,7 +14,7 @@ var {User} = require('./models/user');
 var {Users} = require('./models/users');
 var {Userdetail} = require('./models/userdetail');
 var {Location} = require('./models/location');
-var fs = require("fs");
+
 
 
 const port = process.env.PORT || 3000;
@@ -23,7 +23,13 @@ const port = process.env.PORT || 3000;
 var app = express();
 
 app.use(bodyParser.json());
+app.get('/users',(req,res)=>{
 
+  var todos1;
+  Users.find().then((users)=>{
+    res.send({
+      users
+    })
 
 app.post('/todos1234',(req,res)=>{
 
@@ -41,17 +47,8 @@ console.log(req.body);
 });
 
 
-app.get('/display', function(req, res) {
-  fs.readFile('suntzu.jpg', function(err, data) {
-    if (err) throw err; // Fail if the file can't be read.
-    else {
-      res.writeHead(200, {'Content-Type': 'image/jpeg'});
-      res.end(data); // Send the file data to the browser.
-    }
-  });
-});
 
-app.get('/todos1234/:userid&:location',(req,res)=>{
+    app.get('/todos12345/:userid&:location',(req,res)=>{
 
   var location = req.params.location;
   var userid  = req.params.userid;
